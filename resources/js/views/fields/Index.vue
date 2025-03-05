@@ -145,9 +145,9 @@ const deleteField = async (field) => {
     }
 
     try {
-        const {message, status} = await api.deleteField(field.id);
+        const {status} = await api.deleteField(field.id);
         if(status === 204) {
-            toast.success(message);
+            toast.success("Field deleted successfully.");
             fields.value = fields.value.filter(f => f.id !== field.id);
         }
     } catch (error) {
