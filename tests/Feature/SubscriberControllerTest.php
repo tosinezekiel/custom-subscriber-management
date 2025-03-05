@@ -28,9 +28,7 @@ class SubscriberControllerTest extends TestCase
             ])
             ->assertJson(['status' => 'Success']);
 
-        $responseData = $response->json('data');
-
-        $this->assertCount(3, $responseData['data']);
+        $this->assertCount(3, $response->json('data'));
     }
 
     /** @test */
@@ -111,8 +109,7 @@ class SubscriberControllerTest extends TestCase
                 ]
             ]);
 
-        $responseData = $response->json('data');
-        $this->assertArrayHasKey('field_values', $responseData);
+        $this->assertArrayHasKey('fields', $response->json('data'));
     }
 
     /** @test */
@@ -252,8 +249,7 @@ class SubscriberControllerTest extends TestCase
         $response = $this->getJson('/api/subscribers?state=active');
 
         $response->assertStatus(200);
-        $responseData = $response->json('data');
-        $this->assertCount(2, $responseData['data']);
+        $this->assertCount(2, $response->json('data'));
     }
 
     /**

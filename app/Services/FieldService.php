@@ -33,7 +33,7 @@ class FieldService
     }
 
     /**
-     * Find a field by ID.
+     * Find a fields by ID.
      *
      * @param int $id
      * @return Field
@@ -44,7 +44,7 @@ class FieldService
     }
 
     /**
-     * Create a new field.
+     * Create a new fields.
      *
      * @param CreateFieldDTO $dto
      * @return Field
@@ -60,7 +60,7 @@ class FieldService
     }
 
     /**
-     * Update a field.
+     * Update a fields.
      *
      * @param Field $field
      * @param UpdateFieldDTO $dto
@@ -82,7 +82,7 @@ class FieldService
     }
 
     /**
-     * Delete a field if it's not in use.
+     * Delete a fields if it's not in use.
      *
      * @param Field $field
      * @return bool|string

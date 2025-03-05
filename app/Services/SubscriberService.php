@@ -38,7 +38,7 @@ class SubscriberService
     }
 
     /**
-     * Create a new subscriber with field values.
+     * Create a new subscribers with fields values.
      *
      * @param CreateSubscriberDTO $dto
      * @return Subscriber
@@ -61,7 +61,7 @@ class SubscriberService
     }
 
     /**
-     * Update a subscriber with field values.
+     * Update a subscribers with fields values.
      *
      * @param Subscriber $subscriber
      * @param UpdateSubscriberDTO $dto
@@ -85,7 +85,7 @@ class SubscriberService
     }
 
     /**
-     * Delete a subscriber.
+     * Delete a subscribers.
      *
      * @param Subscriber $subscriber
      * @return bool
@@ -96,7 +96,7 @@ class SubscriberService
     }
 
     /**
-     * Save field values for a subscriber.
+     * Save fields values for a subscribers.
      *
      * @param Subscriber $subscriber
      * @param array $fields

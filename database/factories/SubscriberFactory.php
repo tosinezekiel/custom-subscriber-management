@@ -19,9 +19,9 @@ class SubscriberFactory extends Factory
     }
 
     /**
-     * Configure subscriber with field values.
+     * Configure subscribers with fields values.
      *
-     * @param array $fieldValues Array of ['field' => Field, 'value' => string]
+     * @param array $fieldValues Array of ['fields' => Field, 'value' => string]
      */
     public function withFieldValues(array $fieldValues): self
     {
@@ -29,7 +29,7 @@ class SubscriberFactory extends Factory
             foreach ($fieldValues as $fieldValue) {
                 FieldValue::create([
                     'subscriber_id' => $subscriber->id,
-                    'field_id' => $fieldValue['field']->id,
+                    'field_id' => $fieldValue['fields']->id,
                     'value' => $fieldValue['value'],
                 ]);
             }
@@ -37,7 +37,7 @@ class SubscriberFactory extends Factory
     }
 
     /**
-     * Configure subscriber with a specific state.
+     * Configure subscribers with a specific state.
      */
     public function withState(string $state): self
     {
@@ -49,7 +49,7 @@ class SubscriberFactory extends Factory
     }
 
     /**
-     * Configure the subscriber as active.
+     * Configure the subscribers as active.
      */
     public function active(): self
     {
@@ -57,7 +57,7 @@ class SubscriberFactory extends Factory
     }
 
     /**
-     * Configure the subscriber as unsubscribed.
+     * Configure the subscribers as unsubscribed.
      */
     public function unsubscribed(): self
     {
@@ -65,7 +65,7 @@ class SubscriberFactory extends Factory
     }
 
     /**
-     * Configure the subscriber as junk.
+     * Configure the subscribers as junk.
      */
     public function junk(): self
     {
@@ -73,7 +73,7 @@ class SubscriberFactory extends Factory
     }
 
     /**
-     * Configure the subscriber as bounced.
+     * Configure the subscribers as bounced.
      */
     public function bounced(): self
     {
@@ -81,7 +81,7 @@ class SubscriberFactory extends Factory
     }
 
     /**
-     * Configure the subscriber as unconfirmed.
+     * Configure the subscribers as unconfirmed.
      */
     public function unconfirmed(): self
     {

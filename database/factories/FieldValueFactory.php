@@ -33,7 +33,7 @@ class FieldValueFactory extends Factory
     }
 
     /**
-     * Set a specific value for the field value.
+     * Set a specific value for the fields value.
      */
     public function withValue(string $value): self
     {
@@ -45,7 +45,7 @@ class FieldValueFactory extends Factory
     }
 
     /**
-     * Set a specific field for the field value.
+     * Set a specific fields for the fields value.
      */
     public function forField(Field $field): self
     {
@@ -57,7 +57,7 @@ class FieldValueFactory extends Factory
     }
 
     /**
-     * Set a specific subscriber for the field value.
+     * Set a specific subscribers for the fields value.
      */
     public function forSubscriber(Subscriber $subscriber): self
     {

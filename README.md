@@ -26,7 +26,7 @@ Follow these steps to set up the project:
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd subscriber-management
+cd mailerlite-subscribers-management
 
 # Install PHP dependencies
 composer install
@@ -59,8 +59,8 @@ php artisan migrate --seed
 # Install Node.js dependencies
 npm install
 
-# Build frontend assets
-npm run build
+# compile frontend assets
+npm run dev
 ```
 
 ## Starting the Application
@@ -124,3 +124,8 @@ Run tests with:
 ```bash
 php artisan test
 ```
+
+Link to screen capture
+[https://www.loom.com/share/dd38c36cfa2b4a1bb0988b9cf948678f?sid=ba1da3e8-72e8-43b6-a93c-79fa755cc094]
+
+Enjoy 🙂!

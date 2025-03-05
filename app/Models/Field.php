@@ -18,7 +18,7 @@ class Field extends Model
     }
 
     /**
-     * Get all subscribers that have values for this field.
+     * Get all subscribers that have values for this fields.
      */
     public function subscribers(): BelongsToMany
     {

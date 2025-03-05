@@ -45,8 +45,8 @@ class UpdateFieldRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title.unique' => 'A field with this title already exists.',
-            'type.in' => 'The field type must be one of: date, number, string, boolean.',
+            'title.unique' => 'A fields with this title already exists.',
+            'type.in' => 'The fields type must be one of: date, number, string, boolean.',
         ];
     }
 }

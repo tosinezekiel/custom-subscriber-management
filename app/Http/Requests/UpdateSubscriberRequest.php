@@ -2,8 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Models\Field;
 use Illuminate\Validation\Rule;
+use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateSubscriberRequest extends FormRequest
 {
@@ -22,7 +23,7 @@ class UpdateSubscriberRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'email' => [
                 'sometimes',
                 'email',
@@ -41,7 +42,32 @@ class UpdateSubscriberRequest extends FormRequest
             ],
             'fields' => 'sometimes|array',
             'fields.*.field_id' => 'required|exists:fields,id',
-            'fields.*.value' => 'required|string',
         ];
+
+        if ($this->has('fields')) {
+            foreach ($this->input('fields') as $index => $field) {
+                $fieldId = $field['field_id'];
+                $fieldType = Field::find($fieldId)->type ?? null;
+
+                if ($fieldType) {
+                    switch ($fieldType) {
+                        case 'date':
+                            $rules["fields.$index.value"] = 'sometimes|date';
+                            break;
+                        case 'number':
+                            $rules["fields.$index.value"] = 'sometimes|numeric';
+                            break;
+                        case 'boolean':
+                            $rules["fields.$index.value"] = 'sometimes|boolean';
+                            break;
+                        default:
+                            $rules["fields.$index.value"] = 'sometimes|string';
+                            break;
+                    }
+                }
+            }
+        }
+
+        return $rules;
     }
 }

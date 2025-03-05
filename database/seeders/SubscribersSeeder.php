@@ -31,10 +31,10 @@ class SubscribersSeeder extends Seeder
             ->count(5)
             ->withState('active')
             ->withFieldValues([
-                ['field' => $companyField, 'value' => $faker->company()],
-                ['field' => $countryField, 'value' => $faker->country()],
-                ['field' => $birthdayField, 'value' => $faker->date('Y-m-d', '-20 years')],
-                ['field' => $newsletterField, 'value' => $faker->boolean()],
+                ['fields' => $companyField, 'value' => $faker->company()],
+                ['fields' => $countryField, 'value' => $faker->country()],
+                ['fields' => $birthdayField, 'value' => $faker->date('Y-m-d', '-20 years')],
+                ['fields' => $newsletterField, 'value' => $faker->boolean()],
             ])->create();
     }
 }

@@ -3,23 +3,41 @@
 namespace App\Traits;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 trait JsonResponses
 {
     /**
      * Return a success JSON response.
      *
-     * @param array $data
+     * @param JsonResource|LengthAwarePaginator|NULL $data
      * @param string|null $message
      * @param int $code
      * @return JsonResponse
      */
-    protected function success(array $data = [], string $message = NULL, int $code = 200): JsonResponse
+    protected function success(JsonResource|LengthAwarePaginator|NULL $data, ?string $message = null, int $code = 200): JsonResponse
     {
+        if ($data instanceof LengthAwarePaginator) {
+            return response()->json([
+                'status' => 'Success',
+                'message' => $message,
+                'pagination' => [
+                    'current_page' => $data->currentPage(),
+                    'per_page' => $data->perPage(),
+                    'total' => $data->total(),
+                    'last_page' => $data->lastPage(),
+                    'next_page_url' => $data->nextPageUrl(),
+                    'prev_page_url' => $data->previousPageUrl(),
+                ],
+                'data' => $data->items(),
+            ], $code);
+        }
+
         return response()->json([
             'status' => 'Success',
             'message' => $message,
-            'data' => $data
+            'data' => $data,
         ], $code);
     }
 
@@ -31,13 +49,10 @@ trait JsonResponses
      * @param array|null $data
      * @return JsonResponse
      */
-    protected function error(
-        string       $message = null,
-        int          $code = 400,
-        ?array $data = NULL): JsonResponse
+    protected function error(?string $message = null, int $code = 400, ?array $data = null): JsonResponse
     {
         return response()->json([
-            'status' => 'error',
+            'status' => 'Error',
             'message' => $message,
             'data' => $data
         ], $code);
