@@ -1,4 +1,4 @@
-# MailerLite Subscriber Management System
+# Custom Subscriber Management System
 
 This project is a subscriber management system built with Laravel v12 and Vue.js v3. It allows you to manage subscribers and custom fields through a RESTful API.
 
